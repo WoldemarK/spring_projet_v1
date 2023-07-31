@@ -13,6 +13,8 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(exclude = "userChats")
+@EqualsAndHashCode(of = "username")
 @Table(name = "users")
 public class User {
 

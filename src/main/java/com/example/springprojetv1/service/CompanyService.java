@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -28,16 +29,38 @@ public class CompanyService {
                 () -> new RuntimeException("По данному ID: " + id + " не чего не найдено")));
     }
 
-   // @Transactional
+    @Transactional
     public void delete(Long id) {
+        log.info("Удаление компании по ID: " + id);
         companyRepository.findById(id).orElseThrow(
                 () -> new RuntimeException("По данному ID: " + id + " не чего не найдено"));
     }
 
-  //  @Transactional
+    @Transactional
     public Optional<Company> createNewCompany(Company company) {
         log.info("Процесс создания и сохранения" + company.getName());
         return Optional.ofNullable(Optional.of(companyRepository.save(company)).orElseThrow(
                 () -> new RuntimeException("Компания не создана: " + company.getName())));
+    }
+
+    public List<Company> companies() {
+        log.info("Вывод всех компаний");
+        return companyRepository.findAll();
+    }
+
+    public Optional<Company> findByName(String name) {
+        log.info("Поиск компании по названию : " + name);
+        if (name == null) {
+            throw new RuntimeException("Компании с запрашиваемым именем нет в списке: " + name);
+        }
+        return companyRepository.findByNameContainingIgnoreCase(name);
+    }
+
+    public List<Company> findAllByNameContainingIgnoreCase(String name) {
+        log.info("Поиск компаний List по названию : " + name);
+        if (name == null) {
+            throw new RuntimeException("Компании с запрашиваемым именем нет в списке: " + name);
+        }
+        return companyRepository.findAllByNameContainingIgnoreCase(name);
     }
 }
