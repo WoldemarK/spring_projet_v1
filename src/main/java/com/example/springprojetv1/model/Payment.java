@@ -13,7 +13,6 @@ import lombok.*;
 public class Payment {
 
     @Id
-    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

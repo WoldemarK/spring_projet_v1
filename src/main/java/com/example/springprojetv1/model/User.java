@@ -29,7 +29,7 @@ public class User {
     private String firstname;
 
     @Column(name = "last_name", nullable = false)
-    private String last_name;
+    private String lastname;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")

@@ -22,9 +22,9 @@ create table company_locales
 
 create table payment
 (
-    amount      bigint,
-    id          bigserial not null,
-    receiver_id bigint,
+    amount  bigint,
+    id      bigserial not null,
+    user_id bigint,
     primary key (id)
 );
 
@@ -42,6 +42,7 @@ create table users
     company_id bigint,
     id         bigserial    not null,
     first_name varchar(255) not null,
+    last_name  varchar(255) not null,
     role       varchar(255) check (role in ('USER', 'ADMIN')),
     user_name  varchar(255) not null,
     primary key (id)
@@ -54,7 +55,7 @@ alter table if exists company_locales
 
 alter table if exists payment
     add constraint FKb2u6muqxjvdfbib5u91afawcy
-        foreign key (receiver_id)
+        foreign key (user_id)
             references users;
 
 alter table if exists user_chat
