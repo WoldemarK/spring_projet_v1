@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/testProject
+    username: user
+    password: 123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+   properties.hibernate:
+     ddl-auto: update
+     show_sql: true
+     format_qsl: true
+
+logging:
+  level:
+    root: info
+  file:
+    name: test.log
+    path: /
