@@ -1473,3 +1473,42 @@ Action:
 
 Make sure a Liquibase changelog is present at the configured path.
 
+2023-07-31T22:34:08.630+03:00  INFO 21848 --- [main] c.e.s.SpringProjetV1Application          : Starting SpringProjetV1Application using Java 17.0.7 with PID 21848 (D:\Progects\spring projet v1\target\classes started by kovty in D:\Progects\spring projet v1)
+2023-07-31T22:34:08.634+03:00  INFO 21848 --- [main] c.e.s.SpringProjetV1Application          : No active profile set, falling back to 1 default profile: "default"
+2023-07-31T22:34:09.444+03:00  INFO 21848 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-31T22:34:09.500+03:00  INFO 21848 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 1 JPA repository interfaces.
+2023-07-31T22:34:09.941+03:00  INFO 21848 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-31T22:34:09.949+03:00  INFO 21848 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-31T22:34:09.949+03:00  INFO 21848 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-07-31T22:34:10.027+03:00  INFO 21848 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-31T22:34:10.027+03:00  INFO 21848 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1331 ms
+2023-07-31T22:34:10.126+03:00  INFO 21848 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-31T22:34:10.286+03:00  INFO 21848 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5e50df2e
+2023-07-31T22:34:10.288+03:00  INFO 21848 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-31T22:34:10.440+03:00  INFO 21848 --- [main] liquibase.database                       : Set default schema name to public
+2023-07-31T22:34:10.615+03:00  INFO 21848 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2023-07-31T22:34:10.813+03:00  INFO 21848 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-07-31T22:34:10.846+03:00  INFO 21848 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-07-31T22:34:10.854+03:00  INFO 21848 --- [main] liquibase.util                           : UPDATE SUMMARY
+2023-07-31T22:34:10.855+03:00  INFO 21848 --- [main] liquibase.util                           : Run:                          0
+2023-07-31T22:34:10.856+03:00  INFO 21848 --- [main] liquibase.util                           : Previously run:               1
+2023-07-31T22:34:10.857+03:00  INFO 21848 --- [main] liquibase.util                           : Filtered out:                 0
+2023-07-31T22:34:10.857+03:00  INFO 21848 --- [main] liquibase.util                           : -------------------------------
+2023-07-31T22:34:10.857+03:00  INFO 21848 --- [main] liquibase.util                           : Total change sets:            1
+
+2023-07-31T22:34:10.859+03:00  INFO 21848 --- [main] liquibase.util                           : Update summary generated
+2023-07-31T22:34:10.872+03:00  INFO 21848 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2023-07-31T22:34:10.891+03:00  INFO 21848 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2023-07-31T22:34:10.893+03:00  INFO 21848 --- [main] liquibase.command                        : Command execution complete
+2023-07-31T22:34:10.998+03:00  INFO 21848 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-31T22:34:11.069+03:00  INFO 21848 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.6.Final
+2023-07-31T22:34:11.072+03:00  INFO 21848 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-07-31T22:34:11.202+03:00  INFO 21848 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-31T22:34:11.328+03:00  INFO 21848 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-07-31T22:34:11.580+03:00  INFO 21848 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-31T22:34:12.153+03:00  INFO 21848 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-31T22:34:12.155+03:00  INFO 21848 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-31T22:34:12.342+03:00  INFO 21848 --- [main] c.e.s.service.CompanyService             : Начальная загрузка init method class CompanyService
+2023-07-31T22:34:12.476+03:00  WARN 21848 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-31T22:34:12.824+03:00  INFO 21848 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-31T22:34:12.833+03:00  INFO 21848 --- [main] c.e.s.SpringProjetV1Application          : Started SpringProjetV1Application in 4.692 seconds (process running for 5.256)
