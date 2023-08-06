@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Slf4j
@@ -24,20 +26,49 @@ public class CompanyService {
 
     public Optional<Company> findById(Long id) {
         log.info("Производится поиск по ID: " + id);
-        return Optional.ofNullable(companyRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("По данному ID: " + id + " не чего не найдено")));
+        return //Optional.ofNullable(companyRepository.findById(id).orElseThrow(
+                // () -> new RuntimeException("По данному ID: " + id + " не чего не найдено")));
+                companyRepository.findById(id);
     }
 
-   // @Transactional
+    @Transactional
     public void delete(Long id) {
+        log.info("Удаление компании по ID: " + id);
         companyRepository.findById(id).orElseThrow(
                 () -> new RuntimeException("По данному ID: " + id + " не чего не найдено"));
     }
 
-  //  @Transactional
+    @Transactional
     public Optional<Company> createNewCompany(Company company) {
         log.info("Процесс создания и сохранения" + company.getName());
         return Optional.ofNullable(Optional.of(companyRepository.save(company)).orElseThrow(
                 () -> new RuntimeException("Компания не создана: " + company.getName())));
+    }
+
+    public List<Company> companies() {
+        log.info("Вывод всех компаний");
+        return companyRepository.findAll();
+    }
+
+    public Optional<Company> findByName(String name) {
+        log.info("Поиск компании по названию : " + name);
+        Objects.requireNonNull(name, "Компания с запрашиваемым именем нет в списке: " + name);
+        return companyRepository.findByNameContainingIgnoreCase(name);
+    }
+
+    public List<Company> findAllByNameContainingIgnoreCase(String name) {
+        Objects.requireNonNull(name, "Компании с запрашиваемым именем нет в списке: " + name);
+        return companyRepository.findAllByNameContainingIgnoreCase(name);
+    }
+
+    public List<Company> getAllCompany() {
+        return companyRepository.findAll();
+    }
+
+    public void save(Company company) {
+        if (company == null) {
+            throw new RuntimeException("Error save company: ");
+        }
+        companyRepository.save(company);
     }
 }

@@ -10,6 +10,7 @@ import java.util.Map;
 @Setter
 @Getter
 @Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "company")
@@ -28,4 +29,5 @@ public class Company {
     @Column(name = "description")
     @CollectionTable(name = "company_locales", joinColumns = @JoinColumn(name = "company_id"))
     private Map<String, String> locales = new HashMap<>();
+
 }
