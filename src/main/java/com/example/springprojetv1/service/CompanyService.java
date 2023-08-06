@@ -27,8 +27,8 @@ public class CompanyService {
     public Optional<Company> findById(Long id) {
         log.info("Производится поиск по ID: " + id);
         return //Optional.ofNullable(companyRepository.findById(id).orElseThrow(
-               // () -> new RuntimeException("По данному ID: " + id + " не чего не найдено")));
-        companyRepository.findById(id);
+                // () -> new RuntimeException("По данному ID: " + id + " не чего не найдено")));
+                companyRepository.findById(id);
     }
 
     @Transactional
@@ -59,5 +59,16 @@ public class CompanyService {
     public List<Company> findAllByNameContainingIgnoreCase(String name) {
         Objects.requireNonNull(name, "Компании с запрашиваемым именем нет в списке: " + name);
         return companyRepository.findAllByNameContainingIgnoreCase(name);
+    }
+
+    public List<Company> getAllCompany() {
+        return companyRepository.findAll();
+    }
+
+    public void save(Company company) {
+        if (company == null) {
+            throw new RuntimeException("Error save company: ");
+        }
+        companyRepository.save(company);
     }
 }

@@ -10,6 +10,7 @@ import java.util.Map;
 @Setter
 @Getter
 @Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "company")
