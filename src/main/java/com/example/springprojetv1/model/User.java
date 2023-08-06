@@ -1,6 +1,5 @@
 package com.example.springprojetv1.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -44,7 +43,7 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<UserChat> userChats = new ArrayList<>();
 
-    enum Role {
+    public enum Role {
         ADMIN, USER
     }
 }

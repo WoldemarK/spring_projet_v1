@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Slf4j
@@ -25,8 +26,9 @@ public class CompanyService {
 
     public Optional<Company> findById(Long id) {
         log.info("Производится поиск по ID: " + id);
-        return Optional.ofNullable(companyRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("По данному ID: " + id + " не чего не найдено")));
+        return //Optional.ofNullable(companyRepository.findById(id).orElseThrow(
+               // () -> new RuntimeException("По данному ID: " + id + " не чего не найдено")));
+        companyRepository.findById(id);
     }
 
     @Transactional
@@ -50,17 +52,12 @@ public class CompanyService {
 
     public Optional<Company> findByName(String name) {
         log.info("Поиск компании по названию : " + name);
-        if (name == null) {
-            throw new RuntimeException("Компании с запрашиваемым именем нет в списке: " + name);
-        }
+        Objects.requireNonNull(name, "Компания с запрашиваемым именем нет в списке: " + name);
         return companyRepository.findByNameContainingIgnoreCase(name);
     }
 
     public List<Company> findAllByNameContainingIgnoreCase(String name) {
-        log.info("Поиск компаний List по названию : " + name);
-        if (name == null) {
-            throw new RuntimeException("Компании с запрашиваемым именем нет в списке: " + name);
-        }
+        Objects.requireNonNull(name, "Компании с запрашиваемым именем нет в списке: " + name);
         return companyRepository.findAllByNameContainingIgnoreCase(name);
     }
 }
